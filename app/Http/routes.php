@@ -10,15 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
-Route::get('/','LoginController@index');
-Route::get('/login','LoginController@index');
-Route::post('/login','LoginController@postlogin');
-Route::get('/register','LoginController@register');
-Route::post('/register','LoginController@postregister');
+	
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -31,5 +26,10 @@ Route::post('/register','LoginController@postregister');
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+	Route::get('/','LoginController@index');
+	Route::get('/login','LoginController@index');
+	Route::post('/login','LoginController@postlogin');
+	Route::get('/register','LoginController@register');
+	Route::post('/register','LoginController@postregister');
+	Route::get('/dashboard','LoginController@dashboard');
 });
