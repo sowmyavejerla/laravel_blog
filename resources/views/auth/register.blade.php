@@ -8,12 +8,19 @@ nav {
 
 <div class="container">
 	<div class="row">
-		<div class="Absolute-Center is-Responsive"
+		<div class="register is-Responsive"
 			style="background-color: rgba(0, 0, 0, 0.3)">
 			<div id="logo-container"></div>
 			<div class="col-sm-12 col-md-10 col-md-offset-1">
 				<form action="/register" id="loginForm" method="post">
-				{!! csrf_field() !!}
+					@if (count($errors) > 0)
+					<div class="alert alert-danger">
+						<ul>
+							@foreach ($errors->all() as $error)
+							<li>{{ $error }}</li> @endforeach
+						</ul>
+					</div>
+					@endif {!! csrf_field() !!}
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-user"></i></i></span>
 						<input class="form-control" type="text" name='username'
@@ -43,7 +50,7 @@ nav {
 					<div class="form-group">
 						<button type="submit" class="btn btn-def btn-block">Signup</button>
 					</div>
-					
+
 				</form>
 			</div>
 		</div>

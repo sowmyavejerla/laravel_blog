@@ -14,7 +14,7 @@
 
 </head>
 <style>
-.Absolute-Center {
+.register {
 	margin: auto;
 	position: absolute;
 	top: 0;
@@ -23,9 +23,26 @@
 	right: 0;
 }
 
-.Absolute-Center.is-Responsive {
-	width: 60%;
-	height: 45%;
+.register.is-Responsive {
+	width: 70%;
+	height: 60%;
+	min-width: 300px;
+	max-width: 548px;
+	margin-top:170px;
+	padding: 40px;
+}
+.login {
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.login.is-Responsive {
+	width: 70%;
+	height: 50%;
 	min-width: 300px;
 	max-width: 500px;
 	margin-top:170px;

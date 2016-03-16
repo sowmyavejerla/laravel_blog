@@ -5,14 +5,27 @@ nav {
 }
 </style>
 <h3 style="margin-top: 70px;" align="center">Login Page</h3>
-{{Session::get('message')}}
+
+
 <div class="container">
 	<div class="row">
-		<div class="Absolute-Center is-Responsive"
+		<div class="login is-Responsive"
 			style="background-color: rgba(0, 0, 0, 0.3)">
 			<div id="logo-container"></div>
 			<div class="col-sm-12 col-md-10 col-md-offset-1">
 				<form action="/login" id="loginForm" method="post">
+				@if (count($errors) > 0)
+				<div class="alert alert-danger">
+					<ul>
+						@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li> @endforeach
+					</ul>
+				</div>
+				@endif
+				{{csrf_field()}}
+					@if (Session::has('message'))
+					<div class="alert alert-warning">{{ Session::get('message') }}</div>
+					@endif
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-user"></i></i></span>
 						<input class="form-control" type="text" name='username'
@@ -42,9 +55,6 @@ nav {
 
 		</div>
 	</div>
-</div>@if (Session::has('message'))
-  <div class="alert alert-warning">{{ Session::get('message') }}</div>
-@endif
-
+</div>
 @endsection
 
